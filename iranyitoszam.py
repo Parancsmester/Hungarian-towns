@@ -8,9 +8,9 @@ if not isfile('iranyitoszam.db'):
     print('Kész!\n')
 
 conn = sqlite3.connect('iranyitoszam.db')
-conn.execute('CREATE TABLE IF NOT EXISTS iranyitoszam (id INT PRIMARY KEY NOT NULL, ksh INT NOT NULL, isz INT NOT NULL, megye_id INT NOT NULL, megye TEXT NOT NULL, telepules TEXT NOT NULL);')
+'''conn.execute('CREATE TABLE IF NOT EXISTS iranyitoszam (id INT PRIMARY KEY NOT NULL, ksh INT NOT NULL, isz INT NOT NULL, megye_id INT NOT NULL, megye TEXT NOT NULL, telepules TEXT NOT NULL);')
 
-'''with open('db.txt', 'r', encoding='UTF-8') as f:
+with open('db.txt', 'r', encoding='UTF-8') as f:
     for i, v in enumerate(f.readlines()):
         if i == 0: continue
         conn.execute('INSERT INTO iranyitoszam (id, ksh, isz, megye_id, megye, telepules) VALUES (?, ?, ?, ?, ? ,?)', tuple(v.split()))
