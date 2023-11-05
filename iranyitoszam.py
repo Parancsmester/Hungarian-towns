@@ -25,6 +25,7 @@ while True:
         continue
     print('Irányítószám:', *[i[0] for i in found])
 
-    cursor = conn.execute('SELECT megye FROM iranyitoszam WHERE telepules=?;', inp)
-    found = cursor.fetchall()
-    print(found[0][0], 'vármegye\n')
+    if inp[0] != 'Budapest':
+        cursor = conn.execute('SELECT megye FROM iranyitoszam WHERE telepules=?;', inp)
+        found = cursor.fetchall()
+        print(found[0][0], 'vármegye\n')
